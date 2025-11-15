@@ -3,10 +3,12 @@ const { MeiliSearch } = require('meilisearch')
 
 console.log("apikey " + process.env.apiKey);
 
+
 const client = new MeiliSearch({
   host: 'http://localhost:7700',
   apiKey: process.env.apiKey 
 })
+
 
 const index  = client.index('documents') ; 
 
