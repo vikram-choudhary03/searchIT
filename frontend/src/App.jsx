@@ -12,7 +12,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/search" element={<SearchPage />} />
-        {/* <Route path="/doc/:id" element={<DocView />} /> */}
+        <Route path="/doc/:id" element={<DocView />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AppShell>
