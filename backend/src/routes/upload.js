@@ -37,7 +37,7 @@ router.post("/", upload.single('file'), async (req, res) => {
       const team = "Marketing";
   
       // 4) create doc object for MeiliSearch
-      
+      console.log(content);
       const doc = {
         id: String(Date.now()),
         title: file.originalname,
