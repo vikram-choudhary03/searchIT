@@ -5,6 +5,8 @@ const cors = require('cors') ;
 
 const uploadRoute  = require("./routes/upload") ; 
 const searchRoute  = require("./routes/search") ;
+const documentsRoute = require("./routes/documents");
+
 
 const app  = express(); 
 
@@ -15,6 +17,7 @@ app.use(express.json());
 
 app.use("/upload" , uploadRoute) ; 
 app.use("/search" , searchRoute) ; 
+app.use("/api", documentsRoute);
 
 
 app.listen(PORT, ()=>{
