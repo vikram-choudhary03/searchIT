@@ -10,7 +10,7 @@ const client = new MeiliSearch({
 
 
 
-//  const deleteDoc = async ()=>{
+// s const deleteDoc = async ()=>{
 //   await client.deleteIndex("documents");
 //   console.log("All docs deleted");
 // }

@@ -37,11 +37,12 @@ router.post("/", upload.single('file'), async (req, res) => {
       const team = "Marketing";
   
       // 4) create doc object for MeiliSearch
+      
       const doc = {
         id: String(Date.now()),
         title: file.originalname,
         filename: file.originalname,
-        fileurl: cloud.secure_url,      //  CLOUD URL
+        fileurl: cloud.secure_url ,      //  CLOUD URL
         createdAt: new Date().toISOString(),
         mimetype: file.mimetype,
         content,
@@ -49,7 +50,7 @@ router.post("/", upload.single('file'), async (req, res) => {
         project,
         team
       };
-  
+      console.log(doc);
       await index.addDocuments([doc]);
   
       await index.updateFilterableAttributes(["topic", "project", "team", "mimetype"]);
@@ -83,8 +84,9 @@ function extractKeywords (text){
 
 function uploadToCloudinary(buffer, originalname) {
     return new Promise((resolve, reject) => {
+      const safeName = path.parse(originalname).name.replace(/\s+/g, "_"); 
       cloudinary.uploader.upload_stream(
-        { resource_type: "auto", public_id: `docs/${Date.now()}_${originalname}` },
+        { resource_type: "auto", public_id: `docs/${Date.now()}_${safeName}` },
         (err, result) => {
           if (err) return reject(err);
           resolve(result);

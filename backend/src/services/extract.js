@@ -1,16 +1,25 @@
-const { PDFParse } = require('pdf-parse');
+const  {PDFParse} = require("pdf-parse");
 
-const fs  = require('fs') ; 
-
-
-
-async function extractTextFromBuffer(buffer, mimetype) {
-    if (mimetype === "application/pdf") {
-      const data = await pdf(buffer);
-      return data.text;
+ async function extractTextFromBuffer(buffer, mimetype) {
+    if (!buffer) {
+        throw new Error("No buffer provided");
     }
-    return ""; // fallback
-  }
-  
 
-module.exports = extractTextFromBuffer ; 
+    if (mimetype === "application/pdf") {
+
+      const uint8 = new Uint8Array(buffer) ;
+      const parser = new PDFParse(uint8);
+      
+      console.log(parser);
+      const result = await parser.getText();
+      console.log(result.text);
+
+
+      return result.text;
+    }
+
+    return "";
+}
+
+
+module.exports = extractTextFromBuffer
