@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import api from "../lib/api";
-import { Document, Page, pdfjs } from "react-pdf";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
+// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+//   "pdfjs-dist/build/pdf.worker.min.js",
+// import.meta.url
+// ).toString();
+// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 export default function DocView() {
   const { id } = useParams();
@@ -13,7 +17,8 @@ export default function DocView() {
   useEffect(() => {
     async function fetchDoc() {
       try {
-        const res = await api.get(`/document/${encodeURIComponent(id)}`); // implement backend route to fetch metadata & fileUrl
+        const res = await api.get(`/api/document/${encodeURIComponent(id)}`); // implement backend route to fetch metadata & fileUrl
+        console.log(res.data);
         setDoc(res.data);
       } catch(e) { console.error(e) }
     }
@@ -27,7 +32,7 @@ export default function DocView() {
       <h1 className="text-2xl font-semibold mb-3">{doc.title}</h1>
       <div className="grid md:grid-cols-3 gap-6">
         <div className="md:col-span-2 bg-white p-4 rounded shadow">
-          <Document file={doc.fileUrl} onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
+          <Document file={"http://localhost:3000/fileUrl"} onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
             {Array.from({length: Math.min(numPages || 1, 5)}).map((_, i) => (
               <Page key={i} pageNumber={i+1} />
             ))}

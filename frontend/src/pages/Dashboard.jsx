@@ -13,13 +13,13 @@ export const Dashboard = () => {
     setLoading(true);
 
     try {
-      const res = await api.get("/recent");
+      const res = await api.get("/api/recent");
 
       setRecent(res.data || []);
     } catch (e) {
       console.error(e);
     } finally {
-      setLoading(true);
+      setLoading(false);
     }
   }
 

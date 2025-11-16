@@ -10,6 +10,8 @@ router.get("/recent", async (req, res) => {
       sort: ["createdAt:desc"],
       limit: 10,
     });
+    
+    
     res.json(results.hits);
   } catch (err) {
     console.error(err);
