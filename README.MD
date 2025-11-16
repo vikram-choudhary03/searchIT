@@ -5,12 +5,21 @@ A  internal search tool for marketing teams to **index documents, perform  searc
 - **Frontend:** [https://search-it-ht76.vercel.app/](https://search-it-ht76.vercel.app/)
 - **Backend API:** [https://searchit-p7zt.onrender.com](https://searchit-p7zt.onrender.com)
 - **GitHub Repository:** [SearchIT](https://github.com/vikram-choudhary03/searchIT)
+- **MeiliSearch Service:** []()
+
+To see the  project in action, first visit the MeiliSearch Service link , wait till it get started. Then try to upload the document , it will work.  
 
 ---
 
 ## Demo
 
-[![Watch the demo](https://drive.google.com/thumbnail?id=1QCfpVPDDeSB0m9I_pbPJGLV3LsTcgZ0h)](https://drive.google.com/file/d/1QCfpVPDDeSB0m9I_pbPJGLV3LsTcgZ0h/view?usp=sharing)
+<div align="center">
+
+[![Watch the demo](https://drive.google.com/thumbnail?id=1QCfpVPDDeSB0m9I_pbPJGLV3LsTcgZ0h&sz=w1000)](https://drive.google.com/file/d/1QCfpVPDDeSB0m9I_pbPJGLV3LsTcgZ0h/view?usp=sharing)
+
+</div>
+
+---
 
 ## Features (v2)
 
