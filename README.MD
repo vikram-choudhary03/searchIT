@@ -1,4 +1,4 @@
-# Smart Document Search
+# SearchIT 
 
 A  internal search tool for marketing teams to **index documents, perform  search, and auto-categorize by topic, project, and team**.
 
